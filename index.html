@@ -98,17 +98,75 @@
 <section id="contact" class="section">
   <div class="container">
     <h2>Find Us & Book</h2>
+    <div class="contact-grid">
+  <div class="contact-info">
+    <p><strong>Address</strong><br>12 Sisson Street, Southernwood, Mthatha, 5099</p>
+    <p><strong>Phone</strong><br><a href="tel:+27695545501">069 554 5501</a></p>
+    <p><strong>Email</strong><br><a href="mailto:stay@ekhayaguesthouse.co.za">stay@ekhayaguesthouse.co.za</a></p>
+    <a href="https://wa.me/27695545501?text=Hi%2C%20I%27d%20like%20to%20book%20a%20room%20at%20Ekhaya" class="btn">Chat on WhatsApp</a>
+  </div>
+  <div class="contact-form-wrap">
+  <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="1e37723a-276d-48af-a719-84fb17f52a15">
+  <input type="hidden" name="subject" value="New booking enquiry from Ekhaya website">
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="phone">Phone / WhatsApp</label>
+  <input type="tel" id="phone" name="phone" required>
+
+  <label for="checkin">Check-in date</label>
+  <input type="date" id="checkin" name="checkin" required>
+
+  <label for="room">Room</label>
+  <select id="room" name="room">
+    <option>Standard Room</option>
+    <option>Family Room</option>
+    <option>Executive Suite</option>
+  </select>
+
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="4"></textarea>
+
+  <button type="submit" class="btn">Send enquiry</button>
+</form>
+
+  </div>
+</div>
+<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27182.79603704159!2d28.749892313443254!3d-31.61058329157732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e5fd72d4b37a1e3%3A0x5004f72f98ca2922!2sSouthernwood%2C%20Mthatha%2C%205100!5e0!3m2!1sen!2sza!4v1790243748421!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
   </div>
 </section>
 <section id="reviews" class="section">
   <div class="container">
     <h2>Guest Reviews</h2>
+    <div class="reviews">
+  <blockquote class="review">
+    <p>"We stayed here while visiting our daughter at WSU. Clean, quiet, and Mama's breakfast was the best part of the trip."</p>
+    <cite>Nomvula D., East London</cite>
+  </blockquote>
+  <blockquote class="review">
+    <p>"In Mthatha for work every month. Reliable Wi-Fi, the power stays on, and the desk in the Executive Suite is a lifesaver."</p>
+    <cite>Sipho M., Johannesburg</cite>
+  </blockquote>
+  <blockquote class="review">
+    <p>"Stopped over on the way to Coffee Bay. Felt like staying with family. We will be back."</p>
+    <cite>Thandeka &amp; Luyanda, Durban</cite>
+  </blockquote>
+</div>
   </div>
 </section>
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; 2026 Ekhaya Guesthouse · Southernwood, Mthatha</p>
-    <p>Website by <a href="https://rhadebedigital.netlify.app">Rhadebe Digital</a></p>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p>&copy; 2026 Ekhaya Guesthouse · 12 Sisson Street, Southernwood, Mthatha</p>
+    <p class="credit">Website by <a href="https://rhadebedigital.netlify.app" target="_blank" rel="noopener">Rhadebe Digital</a></p>
   </div>
 </footer>
 </body>
