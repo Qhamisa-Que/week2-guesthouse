@@ -218,4 +218,14 @@ nav { flex-basis: 100%; }
   padding-top: 0.75rem;
 }
 .nav-links.open { display: flex; }
+
+.nav-toggle.active .bar:nth-child(1) {
+  transform: translateY(13px) rotate(45deg);
+}
+.nav-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active .bar:nth-child(3) {
+  transform: translateY(-13px) rotate(-45deg);
+}
 }
