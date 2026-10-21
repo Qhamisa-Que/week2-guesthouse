@@ -105,3 +105,131 @@ navLinks.querySelectorAll("a").forEach(function (link) {
     });
   });
 })();
+
+// ===== BOOKING FORM VALIDATION =====
+(function () {
+  const form = document.querySelector(".contact-form");
+  if (!form) return;
+
+  const nameField = form.querySelector("#name");
+  const phoneField = form.querySelector("#phone");
+  const dateField = form.querySelector("#checkin");
+  const roomField = form.querySelector("#room");
+  const messageField = form.querySelector("#message");
+  const fields = [nameField, phoneField, dateField, roomField, messageField];
+
+  if (fields.some(function (field) {
+    return !field || !form.querySelector(`#${field.id}-error`);
+  })) return;
+
+  function todayInSouthAfrica() {
+    const parts = new Intl.DateTimeFormat("en", {
+      timeZone: "Africa/Johannesburg",
+      year: "numeric", month: "2-digit", day: "2-digit"
+    }).formatToParts(new Date());
+
+    function part(type) {
+      return parts.find(function (item) {
+        return item.type === type;
+      }).value;
+    }
+
+    return `${part("year")}-${part("month")}-${part("day")}`;
+  }
+
+  function phoneLooksValid(value) {
+    const number = value.replace(/[\s()-]/g, "");
+
+    if (/^\+?27/.test(number)) {
+      return /^\+?27[1-9]\d{8}$/.test(number);
+    }
+
+    return /^0[1-9]\d{8}$/.test(number) ||
+           /^\+[1-9]\d{6,14}$/.test(number);
+  }
+
+  function errorFor(field) {
+    const value = field.value.trim();
+
+    if (field === nameField) {
+      if (value.length < 2) {
+        return "Please enter your name (at least 2 characters).";
+      }
+      if (value.length > 80) {
+        return "Please use no more than 80 characters for your name.";
+      }
+    }
+
+    if (field === phoneField) {
+      if (!value) {
+        return "Please enter a phone or WhatsApp number.";
+      }
+      if (!phoneLooksValid(value)) {
+        return "Use a 10-digit South African number, or + and an international country code.";
+      }
+    }
+
+    if (field === dateField) {
+      dateField.min = todayInSouthAfrica();
+
+      if (!value) {
+        return "Please choose your check-in date.";
+      }
+      if (value < dateField.min) {
+        return "Choose today or a future check-in date.";
+      }
+    }
+
+    if (field === roomField && !value) {
+      return "Please choose a room.";
+    }
+
+    if (field === messageField && value.length > 1000) {
+      return "Please keep your message to 1,000 characters or fewer.";
+    }
+
+    return "";
+  }
+
+  function validateField(field) {
+    const error = errorFor(field);
+    form.querySelector(`#${field.id}-error`).textContent = error;
+    field.setAttribute("aria-invalid", String(Boolean(error)));
+    return error === "";
+  }
+
+  fields.forEach(function (field) {
+    field.addEventListener("blur", function () {
+      validateField(field);
+    });
+
+    field.addEventListener("change", function () {
+      validateField(field);
+    });
+
+    field.addEventListener("input", function () {
+      if (field.getAttribute("aria-invalid") === "true") {
+        validateField(field);
+      }
+    });
+  });
+
+  form.addEventListener("submit", function (event) {
+    const invalidFields = fields.filter(function (field) {
+      return !validateField(field);
+    });
+
+    if (invalidFields.length > 0) {
+      event.preventDefault();
+      invalidFields[0].focus();
+      return;
+    }
+
+    nameField.value = nameField.value.trim();
+    phoneField.value = phoneField.value.trim();
+    messageField.value = messageField.value.trim();
+  });
+
+  dateField.min = todayInSouthAfrica();
+  form.noValidate = true;
+})();

@@ -389,3 +389,34 @@ body.lightbox-open {
   color: var(--color-primary);
   text-underline-offset: 3px;
 }
+
+/* ===== BOOKING FORM VALIDATION ===== */
+.form-note,
+.form-hint {
+  color: #57534e;
+  font-size: 0.9rem;
+}
+
+.form-note {
+  margin-bottom: 0.5rem;
+}
+
+.field-error {
+  color: #b91c1c;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+.contact-form [aria-invalid="true"] {
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 1px #b91c1c;
+}
+
+.contact-form [aria-invalid="true"]:focus {
+  outline-color: #b91c1c;
+}

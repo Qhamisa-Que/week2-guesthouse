@@ -166,24 +166,37 @@
   <input type="hidden" name="access_key" value="1e37723a-276d-48af-a719-84fb17f52a15">
   <input type="hidden" name="subject" value="New booking enquiry from Ekhaya website">
 
+    <p class="form-note">All fields except Message are required. This is an enquiry, not a confirmed booking.</p>
+
   <label for="name">Name</label>
-  <input type="text" id="name" name="name" required>
+  <input type="text" id="name" name="name" autocomplete="name"
+         minlength="2" maxlength="80" aria-describedby="name-error" required>
+  <p id="name-error" class="field-error" aria-live="polite"></p>
 
   <label for="phone">Phone / WhatsApp</label>
-  <input type="tel" id="phone" name="phone" required>
+  <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel"
+         maxlength="30" aria-describedby="phone-hint phone-error" required>
+  <p id="phone-hint" class="form-hint">South Africa: 069 554 5501. Other countries: include + and the country code.</p>
+  <p id="phone-error" class="field-error" aria-live="polite"></p>
 
   <label for="checkin">Check-in date</label>
-  <input type="date" id="checkin" name="checkin" required>
+  <input type="date" id="checkin" name="checkin" aria-describedby="checkin-error" required>
+  <p id="checkin-error" class="field-error" aria-live="polite"></p>
 
   <label for="room">Room</label>
-  <select id="room" name="room">
-    <option>Standard Room</option>
-    <option>Family Room</option>
-    <option>Executive Suite</option>
+  <select id="room" name="room" aria-describedby="room-error" required>
+    <option value="">Choose a room</option>
+    <option value="Standard Room">Standard Room</option>
+    <option value="Family Room">Family Room</option>
+    <option value="Executive Suite">Executive Suite</option>
   </select>
+  <p id="room-error" class="field-error" aria-live="polite"></p>
 
-  <label for="message">Message</label>
-  <textarea id="message" name="message" rows="4"></textarea>
+  <label for="message">Message (optional)</label>
+  <textarea id="message" name="message" rows="4" maxlength="1000"
+            aria-describedby="message-hint message-error"></textarea>
+  <p id="message-hint" class="form-hint">Up to 1,000 characters.</p>
+  <p id="message-error" class="field-error" aria-live="polite"></p>
 
   <button type="submit" class="btn">Send enquiry</button>
 </form>
