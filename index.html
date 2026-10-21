@@ -176,6 +176,24 @@
     <p class="credit">Website by <a href="https://rhadebedigital.netlify.app" target="_blank" rel="noopener">Rhadebe Digital</a></p>
   </div>
 </footer>
+
+<dialog id="gallery-lightbox" class="lightbox" aria-label="Ekhaya photo gallery">
+  <div class="lightbox__content">
+    <button type="button" class="lightbox__close" autofocus>Close &times;</button>
+
+    <figure>
+      <img id="lightbox-image" class="lightbox__image"
+           src="images/guests-stoep.webp" alt="" loading="lazy">
+      <figcaption id="lightbox-caption" aria-live="polite"></figcaption>
+    </figure>
+
+    <div class="lightbox__controls">
+      <button type="button" class="lightbox__previous">&larr; Previous</button>
+      <button type="button" class="lightbox__next">Next &rarr;</button>
+    </div>
+  </div>
+</dialog>
+
 <script src="script.js"></script>
 </body>
 </html>
