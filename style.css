@@ -318,3 +318,74 @@ body.lightbox-open {
   gap: 1rem;
   margin-top: 1rem;
 }
+
+/* ===== FAQ ACCORDION ===== */
+#faq {
+  scroll-margin-top: 5rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  overflow: hidden;
+  border: 1px solid #d6d3d1;
+  border-radius: 10px;
+  background: white;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 60px;
+  padding: 1rem 1.25rem;
+  color: var(--color-dark);
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:hover,
+.faq-item[open] summary {
+  background: #fff7ed;
+  color: var(--color-primary);
+}
+
+.faq-item summary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -4px;
+}
+
+.faq-icon {
+  flex: 0 0 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.faq-icon::before {
+  content: "+";
+}
+
+.faq-item[open] .faq-icon::before {
+  content: "\2212";
+}
+
+.faq-answer {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.faq-answer a {
+  color: var(--color-primary);
+  text-underline-offset: 3px;
+}

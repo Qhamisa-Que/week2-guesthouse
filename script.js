@@ -88,3 +88,20 @@ navLinks.querySelectorAll("a").forEach(function (link) {
     if (opener) opener.focus({ preventScroll: true });
   });
 })();
+
+// ===== FAQ ACCORDION =====
+(function () {
+  const faqItems = document.querySelectorAll("#faq .faq-item");
+
+  faqItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (!item.open) return;
+
+      faqItems.forEach(function (otherItem) {
+        if (otherItem !== item) {
+          otherItem.open = false;
+        }
+      });
+    });
+  });
+})();
