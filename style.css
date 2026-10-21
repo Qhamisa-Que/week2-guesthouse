@@ -420,3 +420,35 @@ body.lightbox-open {
 .contact-form [aria-invalid="true"]:focus {
   outline-color: #b91c1c;
 }
+
+/* ===== FINAL DEMO AND ACCESSIBILITY POLISH ===== */
+.demo-notice {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #fed7aa;
+  background: #fff7ed;
+  color: #7c2d12;
+  font-size: 0.9rem;
+}
+
+.site-footer .credit a {
+  color: #fdba74;
+  text-underline-offset: 3px;
+}
+
+.site-footer .credit a:hover {
+  color: white;
+}
+
+.site-footer .footer-links a:hover {
+  color: #fdba74;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room-card, .gallery img, .bar {
+    transition: none;
+  }
+
+  .room-card:hover, .gallery img:hover {
+    transform: none;
+  }
+}
